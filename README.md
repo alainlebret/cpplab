@@ -1,4 +1,4 @@
-## Travaux pratique C++ / Laboratory work in C++
+## Quelques travaux pratiques en C++ / Some laboratory works in C++
 
 L'ensemble des documents provient d'anciens TP de C++ donnés de 1995 à 1997.
 
