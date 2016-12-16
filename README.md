@@ -1,6 +1,6 @@
 ## Travaux pratique C++ / Laboratory work in C++
 
-L'ensemble des documents proviennent d'anciens TP de C++ donnés de 1995 à 1997.
+L'ensemble des documents provient d'anciens TP de C++ donnés de 1995 à 1997.
 
 ### Licence
 
