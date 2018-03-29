@@ -200,3 +200,4 @@ TSWLatexianTemp*
 hs_err_pid*
 
 .DS_Store
+cmake-build-debug/*
