@@ -38,11 +38,11 @@ void Compresseur::compresser(const string fichierEntree, const string fichierSor
     int nombreRepetitions;  // nombre de répétitions d'un octet.
     float j = 0.0, k = 0.0;
 
-    flux[0].open(fichierEntree, ios::in);             // ouverture du fichierEntree à compresser.
+    flux[0].open(fichierEntree, ios::in);   // ouverture du fichierEntree à compresser.
     flux[1].open(fichierSortie, ios::out);  // ouverture du fichierEntree compressé.
 
     nombreRepetitions = 1;            // un octet lu est répété au moins une fois.
-    octetPrecedent = flux[0].get();    // lecture du premier octet.
+    octetPrecedent = flux[0].get();   // lecture du premier octet.
 
     do {
         octetCourant = flux[0].get();
@@ -82,7 +82,7 @@ void Compresseur::compresser(const string fichierEntree, const string fichierSor
 
     taux = (j / k) * 100;
 
-    flux[0].close();                       // fermeture des flux
+    flux[0].close();  // fermeture des flux
     flux[1].close();
 }
 

@@ -27,10 +27,10 @@ int main(int argc, char *argv[]) {
 
     cout << crypteur << std::endl;
     cout << "--------- CRYPTAGE -----------" << std::endl;
-    crypteur.crypter("texte.txt", "texte.$$$");
+    crypteur.chiffrer("texte.txt", "texte.$$$");
     cout << crypteur << std::endl;
     cout << "-------- DECRYPTAGE ----------" << std::endl;
-    crypteur.crypter("texte.$$$", "texte.ok");
+    crypteur.chiffrer("texte.$$$", "texte.ok");
 
     return EXIT_SUCCESS;
 }

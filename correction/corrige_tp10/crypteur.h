@@ -60,7 +60,7 @@ public:
      * @param fichierEntree nom du fichier d'entrée à chiffrer (déchiffrer)
      * @param fichierSortie nom du fichier de sortie chiffré (déchiffré)
      */
-    void crypter(const char *fichierEntree, const char *fichierSortie);
+    void chiffrer(const char *fichierEntree, const char *fichierSortie);
 
     /** Destructeur. */
     ~Crypteur() { clef = nullptr; delete[] flux; }

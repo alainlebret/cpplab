@@ -1,0 +1,15 @@
+CXX= g++
+CFLAGS= -Wall -g -std=c++11
+OBJS= compress.o testcomp.o
+EXEC= testcomp
+
+.PHONY: clean
+
+$(EXEC): $(OBJS)
+	$(CXX) -o $@ $^
+
+%.o: %.cxx
+	$(CXX) $(CFLAGS) -c $<
+
+clean:
+	$(RM) *.o $(EXEC)

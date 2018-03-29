@@ -28,7 +28,7 @@
  * @param fichierEntree nom du fichier d'entrée à chiffrer (déchiffrer)
  * @param fichierSortie nom du fichier de sortie chiffré (déchiffré)
  */
-void Crypteur::crypter(const char *fichierEntree, const char *fichierSortie) {
+void Crypteur::chiffrer(const char *fichierEntree, const char *fichierSortie) {
     int caractere, i = 0;
 
     flux[0].open(fichierEntree, ios::in | ios::binary);
