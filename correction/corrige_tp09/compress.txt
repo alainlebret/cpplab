@@ -1,0 +1,64 @@
+PROC compresser (FICHIER fichier, FICHIER fichierCompresse)
+VAR octetPrecedent : OCTET;
+    octetCourant : OCTET;
+    nombreRepetitions : ENTIER;
+DEBUT
+     nombreRepetitions <-- 1;  
+     octetPrecedent <-- lireOctet (fichier); 
+
+     REPETER
+	   	octetCourant <-- lireOctet (fichier);
+       	SI (octetCourant = octetPrecedent) 
+             		nombreRepetitions <-- nombreRepetitions + 1; 
+           	SINON
+			SI (nombreRepetitions > seuil) 
+                         ecrireOctet(fichierCompresse, codeRepetition);  
+                         ecrireOctet(fichierCompresse, nombreRepetitions);
+                         ecrireOctet(fichierCompresse, octetPrecedent); 
+			SINON
+				SI (nombreRepetitions > 1)
+			     	  POUR i <-- 1 A nombreRepetitions
+             		      		ecrireOctet(fichierCompresse, octetPrecedent);
+		  FINP
+				SINON
+                        		ecrireOctet(fichierCompresse, octetPrecedent);
+	FINSI
+			FINSI
+		FINSI
+            	nombreRepetitions <-- 1;
+            	octetPrecedent <-- octetCourant;
+     JUSQU'A (fin fichier);
+FIN
+
+
+PROC decompresser(FICHIER fichierCompresse, FICHIER fichier)
+VAR : codeARepeter : OCTET ;
+      octetCourant : OCTET ;
+      nombreRepetitions : ENTIER ; 
+
+DEBUT
+
+    arg[0].open(fichier_compresse, ios::in);  // ouverture du fichier à décompresser.
+    arg[1].open(fichier, ios::out);           // ouverture du fichier décompressé.
+
+    // boucle de lecture des octets tant que la fin de fichier n'est pas
+    // atteinte.
+    while ((octetCourant = arg[0].get()) != EOF)
+    {
+        // si l'octet courant correspond au code de répétition, il nous
+        // faut traiter les deux octets suivants :
+        if (octetCourant == codeRepetition) {
+           nombreRepetitions = arg[0].get();    // on regarde le nombre d'occurrences
+           codeARepeter = arg[0].get();         // on lit l'octet à répéter
+           for (int i=0; i<nombreRepetitions; i++)  // puis on écrit cet octet le nombre de fois requis
+              arg[1].put((char)codeARepeter);       // dans le flux de sortie.
+        }
+        // sinon on l'envoie directement vers le flux de sortie.
+        else arg[1].put((char)octetCourant);
+    }
+
+    arg[0].close();           // fermeture des flots.
+    arg[1].close();
+}
+
+

@@ -20,7 +20,7 @@
  * limitations under the License.
  *
  */
-#ifndef __CRYPTEUR_H    //Requis pour la classe courante
+#ifndef __CRYPTEUR_H
 #define __CRYPTEUR_H
 
 #include <iostream>
@@ -30,14 +30,14 @@
 using namespace std;
 
 /**
- * Classe de chiffrement par la méthode du XOR.
+ * Classe de chiffrement/déchiffrement de fichiers par la méthode du XOR.
  */
 class Crypteur {
 private:
     /** Clef de chiffrement */
     string clef;
 
-    /** Flux de lecture et écriture */
+    /** Flux de lecture et écriture des fichiers */
     fstream *flux;
 
 public:
