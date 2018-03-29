@@ -29,6 +29,9 @@
 
 using namespace std;
 
+/**
+ * Classe de chiffrement par la méthode du XOR.
+ */
 class Crypteur {
 private:
     /** Clef de chiffrement */
