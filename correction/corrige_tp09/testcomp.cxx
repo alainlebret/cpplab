@@ -27,10 +27,10 @@ int main(int argc, char *argv[]) {
 
     cout << compresseur << endl;
     cout << "--------- COMPRESSION -----------" << endl;
-    compresseur.compresser("image.xpm", "image_comp.xpm");
+    compresseur.compresser("image.xpm", "image_.xpm");
     cout << compresseur << std::endl;
     cout << "-------- DECOMPRESSION ----------" << endl;
-    compresseur.decompresser("image_comp.xpm", "image2.xpm");
+    compresseur.decompresser("image_.xpm", "image2.xpm");
 
     return EXIT_SUCCESS;
 }
