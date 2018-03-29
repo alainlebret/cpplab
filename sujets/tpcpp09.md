@@ -18,12 +18,12 @@ Le diagramme de classes UML est le suivant (`fstream` est une classe déclarée 
 Les fonctions membres compresser et decompresser doivent répondre aux prototypes suivants :
 
 ````
-void compresser (char *fichier, char *fichier_compresse);
-void decompresser (char *fichier_compresse, char *fichier);
+void compresser(const string fichierEntree, const string fichierSortie);
+void decompresser(const string fichierEntree, const string fichierSortie);
 ````
 			
 #### 1. Algorithmes
-Donner en pseudolangage les algorithmes des fonctions `compresser()` et `decompresser()`. Justifier le choix du type de vos variables.
+Donner en pseudolangage les algorithmes des fonctions `compresser` et `decompresser`. Justifier le choix du type de vos variables.
 
 #### 2. Implémentation de la classe
 Implémenter en C++ la classe `Compresseur`.

@@ -10,7 +10,7 @@ class Crypteur {
     string getclef() const;
     void setclef(const string aclef);
     int getlongueurClef() const;
-    void crypter(const char *fichierEntree, const char *fichierSortie);
+    void chiffrer(const char *fichierEntree, const char *fichierSortie);
     ~Crypteur();
     friend ostream &operator<<(ostream &os, Crypteur &unCrypteur);
     friend istream &operator>>(istream &is, Crypteur &unCrypteur);

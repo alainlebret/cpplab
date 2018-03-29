@@ -17,10 +17,9 @@ Les données sont chiffrées bit à bit à l'aide de la clef, cette dernière é
 
 ## Exemple
 
+````
 donnée = P = 0x50
-
 clef   = t = 0x74
-
 donnée chiffrée  = P ^ t = $
-
 donnée déchiffrée = $ ^ t = P
+````

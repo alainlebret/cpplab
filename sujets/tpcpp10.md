@@ -14,12 +14,12 @@ On désire créer une classe `Crypteur` déclarée dans le fichier `crypteur.h` 
 
 ![Diagramme de classes](tp10/classes.png)
 
-La fonction membre `crypter()` doit répondre au prototype suivant :
+La fonction membre `chiffrer` doit répondre au prototype suivant :
 
-```void crypter (const string fichierEntree, const string fichierSortie);```
+```void chiffrer(const string fichierEntree, const string fichierSortie);```
 
 #### 1. Algorithmes
-Donner en pseudolangage l'algorithme de la fonction membre `crypter()`. Justifier le type des variables choisies.
+Donner en pseudolangage l'algorithme de la fonction `chiffrer`. Justifier le type des variables choisies.
 
 #### 2. Implémentation de la classe 
 Implémenter en C++ la classe `Crypteur`.
