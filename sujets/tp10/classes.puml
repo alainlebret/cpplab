@@ -1,0 +1,21 @@
+@startuml
+
+class fstream {
+}
+
+class Crypteur {
+    string clef;
+
+    Crypteur(string uneclef);
+    string getclef() const;
+    void setclef(const string aclef);
+    int getlongueurClef() const;
+    void crypter(const char *fichierEntree, const char *fichierSortie);
+    ~Crypteur();
+    friend ostream &operator<<(ostream &os, Crypteur &unCrypteur);
+    friend istream &operator>>(istream &is, Crypteur &unCrypteur);
+}
+
+Crypteur "1" *-right- "2" fstream: flux
+
+@enduml
