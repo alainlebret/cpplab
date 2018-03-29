@@ -2,7 +2,7 @@
 ## Méthode
 Le système de chiffrement/déchiffrement XOR (ou exclusif) répond au schéma fonctionnel suivant :
 
-![Diagramme de classes côté serveur](tp10/xor.png)
+![XOR](tp10/xor.png)
 
 Les données sont chiffrées bit à bit à l'aide de la clef, cette dernière étant répétée autant de fois que nécessaire. L'intérêt de cette opération est sa réversibilité.
 

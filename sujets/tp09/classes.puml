@@ -1,0 +1,26 @@
+@startuml
+
+class fstream {
+}
+
+class Compresseur {
+    int seuil;
+    int codeRepetition;
+    float taux;
+
+    Compresseur(int unseuil, int uncodeRepetition);
+    int getSeuil() const;
+    int getCodeRepetition() const;
+    float getTaux() const;
+    void setSeuil(const int unseuil);
+    void setCodeRepetition(const int uncodeRepetition);
+    void compresser(string fichierEntree, string fichierSortie);
+    void decompresser(string fichierEntree, string fichierSortie);
+    ~Compresseur();
+    friend ostream &operator<<(ostream &os, Compresseur &unCompresseur);
+    friend istream &operator>>(istream &is, Compresseur &unCompresseur);
+}
+
+Compresseur "1" *-right- "2" fstream: flux
+
+@enduml

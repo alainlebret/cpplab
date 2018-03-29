@@ -12,7 +12,7 @@ Réaliser une classe `Crypteur` répondant à l'algorithme de chiffrement/déchi
 
 On désire créer une classe `Crypteur` déclarée dans le fichier `crypteur.h` et implémentée dans le fichier `crypteur.cxx`. Le diagramme de classes UML est le suivant (`fstream` est une classe déclarée dans `<fstream>` et permet de gérer les fichiers de données) :
 
-![Diagramme de classes côté serveur](tp10/classes.png)
+![Diagramme de classes](tp10/classes.png)
 
 La fonction membre `crypter()` doit répondre au prototype suivant :
 
