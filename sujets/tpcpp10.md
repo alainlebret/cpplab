@@ -25,7 +25,7 @@ Donner en pseudolangage l'algorithme de la fonction membre `crypter()`. Justifie
 Implémenter en C++ la classe `Crypteur`.
 
 #### 3. Test de la classe
-Valider la classe en chiffrant le fichier texte.txt. Le fichier destination sera nommé `texte.$$$`. Éditer le fichier chiffré à l'aide d'un éditeur hexadécimal et vérifier son intégrité par rapport à l'algorithme XOR. Vérifier la fonction inverse en déchiffrant `texte.$$$` en `texte.ok`.
+Valider la classe en chiffrant le fichier [texte.txt](tp10/texte.txt). Le fichier destination sera nommé `texte.$$$`. Éditer le fichier chiffré à l'aide d'un éditeur hexadécimal et vérifier son intégrité par rapport à l'algorithme XOR. Vérifier la fonction inverse en déchiffrant `texte.$$$` en `texte.ok`.
 
 
 ### Conditions
