@@ -51,8 +51,8 @@ public:
 
     // services permettant l'accès au données privées.
     string getclef() const { return clef; }
-    void setclef(const string aclef) { clef = aclef; }
-    int getlongueurClef() const { return clef.size(); }
+    void setclef(const string &aclef) { clef = aclef; }
+    int getlongueurClef() const { return static_cast<int>(clef.size()); }
 
     /**
      * Service de chiffrement.
