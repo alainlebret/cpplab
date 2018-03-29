@@ -18,8 +18,8 @@ Le diagramme de classes UML est le suivant (`fstream` est une classe déclarée 
 Les fonctions membres compresser et decompresser doivent répondre aux prototypes suivants :
 
 ````
-void compresser(const string fichierEntree, const string fichierSortie);
-void decompresser(const string fichierEntree, const string fichierSortie);
+void compresser(string fichierEntree, string fichierSortie);
+void decompresser(string fichierEntree, string fichierSortie);
 ````
 			
 #### 1. Algorithmes
@@ -29,7 +29,7 @@ Donner en pseudolangage les algorithmes des fonctions `compresser` et `decompres
 Implémenter en C++ la classe `Compresseur`.
 
 #### 3. Test de la classe
-Valider la classe en compressant le fichier test [`image.xpm`](tp09/image.xpm). Le fichier destination sera nommé `image.xp_`. Éditer le fichier compressé et vérifier son intégrité. Décompresser `image.pp_` en `image2.xpm` et relever le taux de compression obtenu.
+Valider la classe en compressant le fichier test [`image.xpm`](tp09/image.xpm). Le fichier destination sera nommé `image.xp_`. Éditer le fichier compressé et vérifier son intégrité. Décompresser `image.xp_` en `image2.xpm` et relever le taux de compression obtenu.
 
 #### 4. Amélioration de la classe
 Nous avons précédemment mesuré le taux de compression par une méthode contestable. Modifier la classe en conséquence pour permettre un calcul automatique du taux.
