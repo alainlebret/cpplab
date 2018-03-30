@@ -47,8 +47,9 @@ private:
     fstream *flux;
 
 public:
-    // constructeur de la classe Compresseur,
-    // permet l'initialisation des données membres privées de celle-ci.
+    /**
+     * Crée un nouvel objet de type Compresseur.
+     */
     Compresseur(int unseuil, int uncodeRepetition) {
         seuil = unseuil;
         codeRepetition = uncodeRepetition;
@@ -56,16 +57,25 @@ public:
         flux = new fstream[2];
     }
 
-    // accesseurs.
+    // fonctions accesseurs.
     int getSeuil() const { return seuil; }
     int getCodeRepetition() const { return codeRepetition; }
     float getTaux() const { return taux; }
     void setSeuil(const int unseuil) { seuil = unseuil; }
     void setCodeRepetition(const int uncodeRepetition) { codeRepetition = uncodeRepetition; }
 
-    // services de compression et décompression de la classe.
+    /**
+     * Compression par la méthode RLE du fichier en entrée.
+     * @param fichierEntree
+     * @param fichierSortie
+     */
     void compresser(string fichierEntree, string fichierSortie);
 
+    /**
+     * Décompression par la méthode RLE du fichier compressé en entrée.
+     * @param fichierEntree
+     * @param fichierSortie
+     */
     void decompresser(string fichierEntree, string fichierSortie);
 
     /** Destructeur. */

@@ -24,13 +24,10 @@
 
 // Services de la classe Compresseur
 
-/*
- * compresser
- * Paramètres : 'fichier' = nom du fichier à compresser
- *              'fichier_compresse' = nom du fichier resultat
- * Description : Compression du fichier de nom 'fichier' à l'aide de la
- *               méthode RLE. Le fichier obtenu après compression est appelé
- *              'fichier_compresse'.
+/**
+ * Compression par la méthode RLE du fichier en entrée.
+ * @param fichierEntree
+ * @param fichierSortie
  */
 void Compresseur::compresser(const string fichierEntree, const string fichierSortie) {
     int octetPrecedent;     // octet précédent.
@@ -86,13 +83,10 @@ void Compresseur::compresser(const string fichierEntree, const string fichierSor
     flux[1].close();
 }
 
-
-/*
- * decompresser
- * Paramètres : 'fichier_compresse' = nom du fichier à décompresser
- *              'fichier' = nom du fichier résultat
- * Description : Décompression du fichier d'entrée à l'aide
- *               de la méthode RLE.
+/**
+ * Décompression par la méthode RLE du fichier compressé en entrée.
+ * @param fichierEntree
+ * @param fichierSortie
  */
 void Compresseur::decompresser(const string fichierEntree, const string fichierSortie) {
     int codeARepeter;       // octet à répéter.
