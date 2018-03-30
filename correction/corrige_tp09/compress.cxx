@@ -38,8 +38,8 @@ void Compresseur::compresser(const string fichierEntree, const string fichierSor
     int nombreRepetitions;  // nombre de répétitions d'un octet.
     float j = 0.0, k = 0.0;
 
-    flux[0].open(fichierEntree, ios::in);   // ouverture du fichierEntree à compresser.
-    flux[1].open(fichierSortie, ios::out);  // ouverture du fichierEntree compressé.
+    flux[0].open(fichierEntree, ios::in | ios::binary);   // ouverture du fichierEntree à compresser.
+    flux[1].open(fichierSortie, ios::out | ios::binary);  // ouverture du fichierEntree compressé.
 
     nombreRepetitions = 1;            // un octet lu est répété au moins une fois.
     octetPrecedent = flux[0].get();   // lecture du premier octet.
@@ -55,9 +55,9 @@ void Compresseur::compresser(const string fichierEntree, const string fichierSor
         } else {
             // si le nombre de répétitions de l'octet est supérieur au seuil.
             if (nombreRepetitions > seuil) {
-                flux[1].put((char) codeRepetition);       // écriture de l'octet de répétition.
-                flux[1].put((char) nombreRepetitions);    // écriture du nombre de répétitions.
-                flux[1].put((char) octetPrecedent);       // écriture de l'octet récalcitrant.
+                flux[1].put(static_cast<char>(codeRepetition));       // écriture de l'octet de répétition.
+                flux[1].put(static_cast<char>(nombreRepetitions));    // écriture du nombre de répétitions.
+                flux[1].put(static_cast<char>(octetPrecedent));       // écriture de l'octet récalcitrant.
                 k += 3;
             } else {
                 // si le nombre de répétitions de l'octet est inférieur au seuil
@@ -65,18 +65,18 @@ void Compresseur::compresser(const string fichierEntree, const string fichierSor
                 if (nombreRepetitions > 1) {
                     // alors on écrit celui-ci 'nombreRepetitions' fois.
                     for (int i = 1; i <= nombreRepetitions; i++) {
-                        flux[1].put((char) octetPrecedent);
+                        flux[1].put(static_cast<char>(octetPrecedent));
                         k += 1;
                     }
                     // si l'octet n'a qu'une occurrence, on l'écrit.
                 } else {
-                    flux[1].put((char) octetPrecedent);
+                    flux[1].put(static_cast<char>(octetPrecedent));
                     k += 1;
                 }
-                nombreRepetitions = 1;          // on repositionne nombreRepetitions à 1.
-                octetPrecedent = octetCourant;  // mise de côté de l'octet que
-                // l'on vient de traiter.
             }
+            nombreRepetitions = 1;          // on repositionne nombreRepetitions à 1.
+            octetPrecedent = octetCourant;  // mise de côté de l'octet que
+            // l'on vient de traiter.
         }
     } while (octetCourant != EOF);
 
@@ -99,8 +99,8 @@ void Compresseur::decompresser(const string fichierEntree, const string fichierS
     int octetCourant;       // octet courant.
     int nombreRepetitions;  // nombre de répétitions d'un octet.
 
-    flux[0].open(fichierEntree, ios::in);  // ouverture du fichierSortie à décompresser.
-    flux[1].open(fichierSortie, ios::out); // ouverture du fichierSortie décompressé.
+    flux[0].open(fichierEntree, ios::in | ios::binary);  // ouverture du fichierSortie à décompresser.
+    flux[1].open(fichierSortie, ios::out | ios::binary); // ouverture du fichierSortie décompressé.
 
     // boucle de lecture des octets tant que la fin de fichierSortie n'est pas
     // atteinte.
@@ -110,11 +110,11 @@ void Compresseur::decompresser(const string fichierEntree, const string fichierS
         if (octetCourant == codeRepetition) {
             nombreRepetitions = flux[0].get();    // on regarde le nombre d'occurrences
             codeARepeter = flux[0].get();         // on lit l'octet à répéter
-            for (int i = 0; i < nombreRepetitions; i++)  // puis on écrit 'nbre_fois' cet octet
-                flux[1].put((char) codeARepeter);       // dans le flux de sortie.
+            for (int i = 0; i < nombreRepetitions; i++)  // puis on écrit 'nombreRepetitions' fois cet octet
+                flux[1].put(static_cast<char>(codeARepeter));       // dans le flux de sortie.
         } else {
             // sinon on l'envoie directement vers le flux de sortie.
-            flux[1].put((char) octetCourant);
+            flux[1].put(static_cast<char>(octetCourant));
         }
     }
 
