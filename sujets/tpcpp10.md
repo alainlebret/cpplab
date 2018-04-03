@@ -12,7 +12,7 @@ Réaliser une classe `CrypteurXOR` qui hérite de `Crypteur` et répondant à l'
 
 On désire créer une classe `CrypteurXOR` déclarée dans le fichier `xor.h` et implémentée dans le fichier `xor.cxx`. Cette classe héritera de la classe abstraite `Crypteur` (fichiers `crypteur.h` et `crypteur.cxx`). Le diagramme de classes UML est le suivant (`fstream` est une classe déclarée dans `<fstream>` et permet de gérer les fichiers de données) :
 
-![Diagramme de classes](tp10/classes.png)
+![Diagramme de classes réalisé avec https://www.planttext.com](tp10/classes.png)
 
 La fonction membre `chiffrer` doit répondre au prototype suivant :
 

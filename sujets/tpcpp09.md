@@ -13,7 +13,7 @@ Réaliser une classe `Compresseur` répondant aux algorithmes de compression/dé
 On désire créer une classe `Compresseur` déclarée dans le fichier `compress.h` et définie dans le fichier `compress.cxx`.
 Le diagramme de classes UML est le suivant (`fstream` est une classe déclarée dans `<fstream>` et permet de gérer les fichiers de données) :
 
-![Diagramme de classes](tp09/classes.png)
+![Diagramme de classes réalisé avec https://www.planttext.com](tp09/classes.png)
 
 Les fonctions membres compresser et decompresser doivent répondre aux prototypes suivants :
 
