@@ -48,9 +48,6 @@ public:
      */
     void chiffrer(istream &entree, ostream &sortie);
 
-    /** Destructeur. */
-    //~CrypteurXOR():~Crypteur() {}
-
 };
 
 #endif
