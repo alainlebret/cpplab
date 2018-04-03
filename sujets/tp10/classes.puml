@@ -7,15 +7,23 @@ class Crypteur {
     string clef;
 
     Crypteur(string uneclef);
+    Crypteur();
     string getclef() const;
-    void setclef(const string aclef);
+    void setclef(const string &aclef);
     int getlongueurClef() const;
-    void chiffrer(const char *fichierEntree, const char *fichierSortie);
-    ~Crypteur();
+    virtual void chiffrer(const char *fichierEntree, const char *fichierSortie) = 0;
+    virtual void chiffrer(istream &entree, ostream &sortie) = 0;
     friend ostream &operator<<(ostream &os, Crypteur &unCrypteur);
     friend istream &operator>>(istream &is, Crypteur &unCrypteur);
 }
 
+class CrypteurXOR {
+    CrypteurXOR(string uneclef);
+    void chiffrer(const char *fichierEntree, const char *fichierSortie);
+    void chiffrer(istream &entree, ostream &sortie);
+}
+
 Crypteur "1" *-right- "2" fstream: flux
+Crypteur <|-down- CrypteurXOR: Inheritance
 
 @enduml
