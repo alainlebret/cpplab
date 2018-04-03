@@ -30,10 +30,10 @@
 using namespace std;
 
 /**
- * Classe de chiffrement/déchiffrement de fichiers par la méthode du XOR.
+ * Classe de chiffrement/déchiffrement de fichiers utilisant la méthode du XOR.
  */
 class Crypteur {
-private:
+protected:
     /** Clef de chiffrement */
     string clef;
 
@@ -42,33 +42,69 @@ private:
 
 public:
     /**
-     * Constructeur de la classe Crypteur, permet l'initialisation des données membres de celle-ci.
+     * Constructeur logique de la classe Crypteur, permet l'initialisation des
+     * données membres de celle-ci.
      */
     Crypteur(string uneclef) {
         clef = uneclef;
         flux = new fstream[2];
     }
 
-    // services permettant l'accès au données privées.
+    /**
+     * Constructeur par défaut de la classe Crypteur, permet l'initialisation
+     * des données membres de celle-ci.
+     */
+    Crypteur();
+
+    /**
+     * Retourne la clef de chiffrement.
+     */
     string getclef() const { return clef; }
+
+    /**
+     * Met à jour la clef de chiffrement.
+     */
     void setclef(const string &aclef) { clef = aclef; }
+
+    /**
+     * Retourne la longueur de la clef de chiffrement.
+     */
     int getlongueurClef() const { return static_cast<int>(clef.size()); }
 
     /**
-     * Service de chiffrement.
+     * @brief Service de chiffrement.
+     *
+     * Chiffrement du fichier d'entrée et enregistrement dans le fichier de
+     * sortie. Cette fonction virtuelle pure doit être redéfinie dans toute
+     * classe enfant.
      *
      * @param fichierEntree nom du fichier d'entrée à chiffrer (déchiffrer)
      * @param fichierSortie nom du fichier de sortie chiffré (déchiffré)
      */
-    void chiffrer(const char *fichierEntree, const char *fichierSortie);
+    virtual void chiffrer(const char *fichierEntree, const char *fichierSortie) = 0;
+
+    /**
+     * @brief Service de chiffrement.
+     *
+     * Chiffrement du flux d'entrée et transfert dans le flux de sortie.
+     * Cette fonction virtuelle pure doit être redéfinie dans toute classe
+     * enfant.
+     *
+     * @param entree flux d'entrée à chiffrer (déchiffrer)
+     * @param sortie flux de sortie chiffré (déchiffré)
+     */
+    virtual void chiffrer(istream &entree, ostream &sortie) = 0;
 
     /** Destructeur. */
-    ~Crypteur() { clef = nullptr; delete[] flux; }
+    ~Crypteur() {
+        clef = nullptr;
+        delete[] flux;
+    }
 
-    /** Gestion du flux de sortie standard. */
+    /** @brief Gestion du flux de sortie standard. */
     friend ostream &operator<<(ostream &os, Crypteur &unCrypteur);
 
-    /** Gestion du flux d'entrée standard. */
+    /** @brief Gestion du flux d'entrée standard. */
     friend istream &operator>>(istream &is, Crypteur &unCrypteur);
 
 };

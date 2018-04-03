@@ -1,7 +1,7 @@
 CXX= g++
 CFLAGS= -Wall -g -std=c++11
-OBJS= crypteur.o testcryp.o
-EXEC= testcryp
+OBJS= xor.o crypteur.o test_xor.o
+EXEC= test_xor
 
 .PHONY: clean
 

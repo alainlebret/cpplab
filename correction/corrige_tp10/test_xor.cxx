@@ -20,21 +20,18 @@
  * limitations under the License.
  *
  */
-#include "crypteur.h"
+#include "xor.h"
 
-ostream &operator<<(ostream &os, Crypteur &unCrypteur) {
-    os << "Valeurs des attributs de l'objet - Classe Crypteur" << endl;
-    os << "clef : " << unCrypteur.clef << endl;
-    os << "longueur clef : " << unCrypteur.getlongueurClef() << endl;
+int main(int argc, char *argv[]) {
+    CrypteurXOR crypteur("password");
 
-    return os;
-}
+    cout << crypteur << std::endl;
+    cout << "--------- CHIFFREMENT -----------" << std::endl;
+    crypteur.chiffrer("texte.txt", "texte.$$$");
+    cout << crypteur << std::endl;
+    cout << "-------- DECHIFFREMENT ----------" << std::endl;
+    crypteur.chiffrer("texte.$$$", "texte.ok");
 
-istream &operator>>(istream &is, Crypteur &unCrypteur) {
-    cout << "Valeurs des attributs de l'objet - Classe Crypteur" << endl;
-    cout << "Entrez la valeur de la clef : " << endl;
-    is >> unCrypteur.clef;
-
-    return is;
+    return EXIT_SUCCESS;
 }
 
