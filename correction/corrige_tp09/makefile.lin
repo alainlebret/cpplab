@@ -1,6 +1,6 @@
 CXX= g++
 CFLAGS= -Wall -g -std=c++11
-OBJS= compress.o testcomp.o
+OBJS= src/compress.o src/testcomp.o
 EXEC= testcomp
 
 .PHONY: clean
@@ -8,8 +8,8 @@ EXEC= testcomp
 $(EXEC): $(OBJS)
 	$(CXX) -o $@ $^
 
-%.o: %.cxx
-	$(CXX) $(CFLAGS) -c $<
+src/%.o: src/%.cxx
+	$(CXX) $(CFLAGS) -o $@ -c $<
 
 clean:
 	$(RM) *.o $(EXEC)
