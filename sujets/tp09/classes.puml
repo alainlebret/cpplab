@@ -1,26 +1,26 @@
 @startuml
 
-class fstream {
+namespace compression {
+
+class RleCompressor {
+   -int threshold_;
+   -int repetitionCode_;
+   -float rate_;
+   +RleCompressor(int threshold, int repetitionCode);
+   +~RleCompressor();
+   +int getThreshold() const;
+   +int getRepetitionCode() const;
+   +float getRate() const;
+   +void setThreshold(const int threshold);
+   +void setRepetitionCode(const int repetitionCode);
+   +void compress(string inputfile, string outputfile);
+   +void decompress(string inputfile, string outputfile);
+   +friend ostream &operator<<(ostream &os, Compressor &compressor);
+   +friend istream &operator>>(istream &is, Compressor &compressor);
 }
 
-class Compresseur {
-    int seuil;
-    int codeRepetition;
-    float taux;
+RleCompressor "1" *-right- "2" fstream: flux
 
-    Compresseur(int unseuil, int uncodeRepetition);
-    int getSeuil() const;
-    int getCodeRepetition() const;
-    float getTaux() const;
-    void setSeuil(const int unseuil);
-    void setCodeRepetition(const int uncodeRepetition);
-    void compresser(string fichierEntree, string fichierSortie);
-    void decompresser(string fichierEntree, string fichierSortie);
-    ~Compresseur();
-    friend ostream &operator<<(ostream &os, Compresseur &unCompresseur);
-    friend istream &operator>>(istream &is, Compresseur &unCompresseur);
 }
-
-Compresseur "1" *-right- "2" fstream: flux
 
 @enduml
